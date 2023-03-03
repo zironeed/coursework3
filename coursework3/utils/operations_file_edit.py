@@ -1,8 +1,24 @@
+import datetime
+
+
 def remove_empty_dict(file):
     """Удаление пустых словарей"""
     file.remove({})
 
     return file
+
+
+def sort_file(file):
+    """Сортировка операций по дате и времени"""
+    for operation in file:
+        operation['date'] = operation['date'].split('.')[0]
+
+    sort = sorted(
+        file,
+        key=lambda x: datetime.datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S'), reverse=True
+    )
+
+    return sort
 
 
 def get_five_executed_operations(file):
