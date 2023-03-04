@@ -1,6 +1,3 @@
-import datetime
-
-
 class Operation:
     def __init__(self, date, description, card_to, amount, currency, card_from=None):
         self.date = date
